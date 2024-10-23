@@ -1,16 +1,38 @@
-package com.mycompany;
-
-import java.util.Scanner;
-
 public class GaraCavalli {
     public static void main(String[] args) {
-        // input dei dati del cavallo
-        System.out.println("Inserisci il nome del cavallo");
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner name = new Scanner(System.in); // Create a Scanner object
-        System.out.println("Inserisci il nome del cavallo: ");
+        System.out.print("Inserisci la lunghezza del percorso in metri: ");
+        int distanzaTotale = scanner.nextInt();
+        System.out.print("Inserisci il numero di cavalli: ");
+        int numeroCavalli = scanner.nextInt();
+        scanner.nextLine();
 
-        String userName = name.nextLine(); // Read user input
-        System.out.println("nome cavallo: " + userName); // Output user input
+        List<Cavallo> cavalli = new ArrayList<>();
+        CountDownLatch startLatch = new CountDownLatch(1);
+
+        for (int i = 0; i < numeroCavalli; i++) {
+            System.out.print("Inserisci il nome del cavallo " + (i + 1) + ": ");
+            String nome = scanner.nextLine();
+            Cavallo cavallo = new Cavallo(nome, distanzaTotale, startLatch);
+            cavalli.add(cavallo);
+        }
+
+        for (Cavallo cavallo : cavalli) {
+            cavallo.start();
+        }
+
+        System.out.println("Tutti i cavalli sono pronti... VIA!");
+        startLatch.countDown();
+
+        for (Cavallo cavallo : cavalli) {
+            try {
+                cavallo.join();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+
+        System.out.println("La gara è terminata!");
     }
 }
