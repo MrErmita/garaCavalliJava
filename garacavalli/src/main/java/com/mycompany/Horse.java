@@ -44,7 +44,7 @@ public class Horse extends Thread {
 
             System.out.println(name + " ha percorso " + distanceCovered + " metri.");
             try {
-                Thread.sleep(1000); // Pausa di 1 secondo per simulare la corsa al secondo
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
