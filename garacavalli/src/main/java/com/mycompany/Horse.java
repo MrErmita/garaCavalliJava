@@ -14,7 +14,7 @@ public class Horse extends Thread {
         this.speed = speed;
     }
 
-    public String getHorseName() { // Modificato da getName() a getHorseName()
+    public String getHorseName() {
         return name;
     }
 
