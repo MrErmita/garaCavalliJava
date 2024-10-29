@@ -1,5 +1,4 @@
 package com.mycompany;
-// Horse.java
 import java.util.Random;
 
 public class Horse extends Thread {
