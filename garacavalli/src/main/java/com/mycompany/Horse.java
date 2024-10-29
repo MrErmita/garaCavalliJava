@@ -30,7 +30,7 @@ public class Horse extends Thread {
     public void run() {
         Random random = new Random();
         while (distanceCovered < distanceToRun && !injured) {
-            int chanceOfInjury = random.nextInt(100); // 1% di probabilità di infortunio per ogni step
+            int chanceOfInjury = random.nextInt(100);
             if (chanceOfInjury < 1) {
                 injured = true;
                 System.out.println(name + " si è infortunato e ha lasciato la gara!");
