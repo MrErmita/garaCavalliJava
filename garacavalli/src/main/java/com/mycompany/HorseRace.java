@@ -40,7 +40,6 @@ public class HorseRace {
             }
         }
 
-        // Filtra i cavalli che non si sono infortunati
         ArrayList<Horse> finishedHorses = new ArrayList<>();
         for (Horse horse : horses) {
             if (!horse.isInjured()) {
@@ -48,7 +47,6 @@ public class HorseRace {
             }
         }
 
-        // Ordina i cavalli per distanza percorsa (dal maggiore al minore)
         finishedHorses.sort(Comparator.comparing(Horse::getDistanceCovered).reversed());
 
         // Visualizza la classifica finale e determina i primi 3
@@ -57,15 +55,13 @@ public class HorseRace {
             Horse horse = finishedHorses.get(i);
             System.out.println((i + 1) + ". " + horse.getName() + " con " + horse.getDistanceCovered() + " metri");
         }
-
-        // Primi 3 cavalli
+        
         System.out.println("\nPrimi 3 arrivati:");
         for (int i = 0; i < Math.min(3, finishedHorses.size()); i++) {
             Horse horse = finishedHorses.get(i);
             System.out.println((i + 1) + ". " + horse.getName() + " con " + horse.getDistanceCovered() + " metri");
         }
-
-        // Salvataggio dei risultati
+        
         System.out.print("Inserisci il nome del file per salvare i risultati: ");
         String fileName = scanner.next();
 
