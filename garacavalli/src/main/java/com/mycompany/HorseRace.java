@@ -10,17 +10,14 @@ public class HorseRace {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Inserisci la lunghezza della gara
         System.out.print("Inserisci la lunghezza del percorso in metri: ");
         int raceDistance = scanner.nextInt();
 
-        // Inserisci il numero di cavalli
         System.out.print("Inserisci il numero di cavalli in gara: ");
         int numberOfHorses = scanner.nextInt();
 
         ArrayList<Horse> horses = new ArrayList<>();
 
-        // Crea ogni cavallo e aggiungilo alla lista
         for (int i = 1; i <= numberOfHorses; i++) {
             System.out.print("Inserisci il nome del cavallo " + i + ": ");
             String horseName = scanner.next();
@@ -30,13 +27,11 @@ public class HorseRace {
             horses.add(horse);
         }
 
-        // Inizia la gara
         System.out.println("La gara è iniziata!");
         for (Horse horse : horses) {
             horse.start();
         }
 
-        // Attende che tutti i cavalli finiscano la gara
         for (Horse horse : horses) {
             try {
                 horse.join();
