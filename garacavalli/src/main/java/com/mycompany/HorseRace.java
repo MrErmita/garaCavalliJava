@@ -48,8 +48,7 @@ public class HorseRace {
         }
 
         finishedHorses.sort(Comparator.comparing(Horse::getDistanceCovered).reversed());
-
-        // Visualizza la classifica finale e determina i primi 3
+        
         System.out.println("Classifica finale:");
         for (int i = 0; i < finishedHorses.size(); i++) {
             Horse horse = finishedHorses.get(i);
